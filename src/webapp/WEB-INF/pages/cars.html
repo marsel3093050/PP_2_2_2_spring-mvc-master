@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список машин</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        body {
+            background-image: url(https://catherineasquithgallery.com/uploads/posts/2021-02/1614382413_3-p-mashini-na-svetlom-fone-4.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+
+        .container {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #212121;
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+
+        table {
+            background-color: #FFF;
+            min-width: 600px;
+            margin-bottom: 1rem;
+            border-collapse: collapse;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            opacity: 0.8;
+        }
+
+        th,
+        td {
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        th {
+            background-color: #2196F3;
+            color: #FFF;
+            font-weight: 500;
+            border-bottom: 2px solid #1565C0;
+        }
+
+        td {
+            border-bottom: 1px solid #CCC;
+        }
+
+        tr:hover {
+            background-color: #F5F5F5;
+        }
+
+        @media only screen and (max-width: 600px) {
+            table {
+                min-width: 250px;
+            }
+
+            th,
+            td {
+                padding: 0.5rem;
+                font-size: 1rem;
+            }
+
+            th {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Список машин</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Марка</th>
+            <th>Модель</th>
+            <th>Год выпуска</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="car : ${cars}">
+            <td th:text="${car.brand}"></td>
+            <td th:text="${car.model}"></td>
+            <td th:text="${car.year}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
